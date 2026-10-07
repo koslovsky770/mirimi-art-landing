@@ -123,7 +123,7 @@
   const RANK = {
     a: "a33 a20 a17 a27 a25 a08 a03 a24 a12 a09 a11 a32 a14 a05 a13 a04 a26 a02 a29 a30 a22 a19 a16 a21 a15 a23 a01 a06 a28 a10 a07 a18 a31".split(" "),
     b: "b02 b26 b19 b17 b12 b20 b21 b22 b03 b07 b04 b06 b13 b14 b23 b05 b08 b27 b16 b15 b11 b24 b25 b18 b09 b10 b01".split(" "),
-    c: "c13 c07 c15 c12 c14 c05 c03 c16 c11 c06 c08 c09 c02 c01 c04 c10".split(" "),
+    c: "c17 c27 c29 c25 c20 c13 c07 c15 c12 c14 c18 c05 c03 c16 c30 c11 c24 c28 c06 c26 c23 c08 c19 c09 c02 c21 c01 c04 c22 c10".split(" "),
   };
   const sortGallery = (list) => ["a", "b", "c"].flatMap(g => list.filter(i => i.g === g).sort((x, y) => {
     const ix = RANK[g].indexOf(x.id), iy = RANK[g].indexOf(y.id);
