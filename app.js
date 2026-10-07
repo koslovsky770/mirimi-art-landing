@@ -174,28 +174,6 @@
     render(false);
   }).catch(() => { masonry.innerHTML = '<p style="text-align:center;grid-column:1/-1">לא הצלחנו לטעון את הגלריה. נסו לרענן את הדף.</p>'; });
 
-  /* ---------- testimonials carousel ---------- */
-  const quotes = $$('#quotes .quote'), dotsEl = $('#dots');
-  let qi = 0, timer = null;
-  quotes.forEach((_, i) => {
-    const d = document.createElement('button');
-    d.className = 'dot'; d.type = 'button'; d.setAttribute('aria-label', `המלצה ${i + 1}`);
-    d.addEventListener('click', () => { go(i); restart(); });
-    dotsEl.appendChild(d);
-  });
-  const go = (i) => {
-    qi = (i + quotes.length) % quotes.length;
-    quotes.forEach((q, k) => q.classList.toggle('is-on', k === qi));
-    $$('.dot', dotsEl).forEach((d, k) => d.setAttribute('aria-current', String(k === qi)));
-  };
-  const restart = () => { clearInterval(timer); timer = setInterval(() => go(qi + 1), 7500); };
-  go(0); restart();
-  const card = $('#quotes');
-  card.addEventListener('mouseenter', () => clearInterval(timer));
-  card.addEventListener('mouseleave', restart);
-  card.addEventListener('focusin', () => clearInterval(timer));
-  card.addEventListener('focusout', restart);
-
   /* ---------- reviews strip ---------- */
   const REVIEWS = [
     ['r02', 900, 935], ['r16', 900, 784], ['r10', 900, 952], ['r09', 900, 1180], ['r15', 900, 596], ['r03', 900, 1200],

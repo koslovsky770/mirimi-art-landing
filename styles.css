@@ -486,3 +486,16 @@ p { margin: 0; }
 /* --- v3 --- */
 .price__big .was { font-family: var(--f-body); font-size: .42em; color: #666; font-weight: 400; margin-inline-start: .5em; text-decoration-thickness: 2px; text-decoration-color: var(--red); white-space: nowrap; }
 .sec-head--center .sec-head__small { margin-top: 10px; font-size: clamp(14px, .9vw, 17px); color: #666; }
+
+/* --- v4: testimonials without quote card --- */
+.testi__stage { aspect-ratio: 1844 / 470; }
+.proof { margin-top: clamp(8px, 1vw, 20px); }
+.proof .strip { margin-top: 0; }
+@media (max-width: 1100px) {
+  .testi__stage { aspect-ratio: auto; gap: 0; }
+  .proof { margin-top: 24px; }
+}
+.testi__head { left: 0; right: 0; margin-inline: auto; transform: none; }
+.testi__head.rv { transform: translateY(26px); }
+.testi__head.rv.is-in { transform: none; }
+@media (max-width: 1100px) { .testi__head, .testi__head.rv { margin-inline: 0; } }
