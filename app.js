@@ -116,16 +116,19 @@
   /* ---------- gallery ---------- */
   const GROUP_NAME = { a: 'מתחילים', b: 'מתקדמים', c: 'בוגרים' };
   const masonry = $('#masonry'), moreBtn = $('#moreBtn');
-  const PAGE = 16;
+  const PAGE = 20;
   let all = [], filter = 'all', shown = PAGE, current = [];
 
-  const interleave = (list) => {
-    const by = { a: [], b: [], c: [] };
-    list.forEach(i => by[i.g].push(i));
-    const out = []; const max = Math.max(by.a.length, by.b.length, by.c.length);
-    for (let i = 0; i < max; i++) ['a', 'b', 'c'].forEach(k => by[k][i] && out.push(by[k][i]));
-    return out;
+  /* ordered by age group (a: 6-9, b: 10-13, c: 14+), prettiest first inside each group */
+  const RANK = {
+    a: "a33 a20 a17 a27 a25 a08 a03 a24 a12 a09 a11 a32 a14 a05 a13 a04 a26 a02 a29 a30 a22 a19 a16 a21 a15 a23 a01 a06 a28 a10 a07 a18 a31".split(" "),
+    b: "b02 b26 b19 b17 b12 b20 b21 b22 b03 b07 b04 b06 b13 b14 b23 b05 b08 b27 b16 b15 b11 b24 b25 b18 b09 b10 b01".split(" "),
+    c: "c13 c07 c15 c12 c14 c05 c03 c16 c11 c06 c08 c09 c02 c01 c04 c10".split(" "),
   };
+  const sortGallery = (list) => ["a", "b", "c"].flatMap(g => list.filter(i => i.g === g).sort((x, y) => {
+    const ix = RANK[g].indexOf(x.id), iy = RANK[g].indexOf(y.id);
+    return (ix < 0 ? 999 : ix) - (iy < 0 ? 999 : iy);
+  }));
 
   const colCount = () => (matchMedia('(max-width: 860px)').matches ? 2 : matchMedia('(max-width: 1100px)').matches ? 3 : 4);
   let cols = colCount();
@@ -167,7 +170,7 @@
   moreBtn.addEventListener('click', () => { shown += PAGE; render(false); });
 
   fetch('assets/gallery.json').then(r => r.json()).then(list => {
-    all = interleave(list);
+    all = sortGallery(list);
     const n = { all: list.length, a: 0, b: 0, c: 0 };
     list.forEach(i => n[i.g]++);
     Object.keys(n).forEach(k => { const el = $(`#n-${k}`); if (el) el.textContent = n[k]; });
