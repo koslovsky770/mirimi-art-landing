@@ -536,3 +536,6 @@ p { margin: 0; }
   .burger { width: 40px; }
   .burger img { width: 38px; }
 }
+
+/* --- v8 --- */
+.feature__text .body + .body { margin-top: 14px; }
