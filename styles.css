@@ -617,3 +617,19 @@ main, .final { overflow-x: clip; }
 .splat--bl, .splat--br { width: clamp(130px, 14vw, 270px); }
 .groups .splat--tr { width: clamp(140px, 15vw, 290px); }
 .faq .splat--br { width: clamp(120px, 12vw, 230px); }
+
+/* ============ v11: complete (uncropped) splash images supplied by the client ============ */
+.splat { width: clamp(150px, 19vw, 370px); height: auto; background-size: 100% 100%; }
+.splat--tl, .splat--ml, .splat--bl { background-image: url("assets/img/splash-left.webp"); aspect-ratio: 900 / 781; }
+.splat--tr, .splat--mr, .splat--br { background-image: url("assets/img/splash-right.webp"); aspect-ratio: 900 / 964; }
+.splat--tl { top: 0; } .splat--tr { top: 0; }
+.splat--ml { top: 24%; width: clamp(130px, 13vw, 250px); }
+.splat--mr { top: 50%; width: clamp(130px, 13vw, 250px); }
+.splat--bl, .splat--br { width: clamp(120px, 12vw, 230px); }
+.groups .splat--tr { width: clamp(130px, 13vw, 250px); }
+.faq .splat--br { width: clamp(110px, 10vw, 190px); }
+.final .splat { width: clamp(140px, 16vw, 310px); }
+@media (max-width: 1100px) { .splat { width: 28vw; } }
+@media (max-width: 860px) { .splat { width: 34vw; opacity: .6; } .final .splat { width: 32vw; opacity: .8; } }
+.hero .splat { width: clamp(160px, 22vw, 420px); }
+@media (max-width: 860px) { .hero .splat { width: 34vw; } }
