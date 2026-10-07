@@ -514,3 +514,6 @@ p { margin: 0; }
 @media (max-width: 640px) { .hero__deco--l { left: -4%; top: 2vw; width: 22vw; } .hero__deco--r { left: 82%; top: 62vw; width: 22vw; } .hero__deco--s { display: block; left: 3%; top: 118vw; width: 18vw; } }
 @media (max-width: 1000px) { .hero__deco--l { left: 1.5%; width: 12vw; } .hero__deco--r { left: 86.5%; width: 12vw; } }
 @media (max-width: 640px) { .hero__deco, .hero__deco--s { display: none !important; } }
+/* --- v6: natural logo ratio; no hidden-until-scroll on phones --- */
+.foot__brand img { height: auto; }
+@media (max-width: 860px) { .rv { opacity: 1 !important; transform: none !important; transition: none !important; } }
