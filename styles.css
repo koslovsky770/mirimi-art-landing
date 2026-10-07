@@ -517,3 +517,22 @@ p { margin: 0; }
 /* --- v6: natural logo ratio; no hidden-until-scroll on phones --- */
 .foot__brand img { height: auto; }
 @media (max-width: 860px) { .rv { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+/* --- v7: centered, bigger logo --- */
+.nav { height: 108px; }
+.nav__logo { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+.nav__logo img { height: 86px; }
+.nav__links { position: static; inset: auto; margin: 0; width: auto; order: 1; }
+.nav__cta { order: 3; margin-inline-start: auto; }
+.hero { padding-top: clamp(40px, 6.9vw, 133px); }
+.hero__tag { position: relative; z-index: 1; margin: clamp(16px, 1.3vw, 26px) auto 0; width: min(100% - 40px, 900px); font-family: var(--f-head); font-weight: 500; font-size: clamp(20px, 1.7vw, 33px); line-height: 1.35; color: var(--red); }
+.hero__tag + .hero__lead { margin-top: clamp(10px, .9vw, 18px); }
+@media (max-width: 860px) { .nav { height: 88px; } .nav__logo img { height: 66px; } }
+@media (max-width: 860px) {
+  .nav { height: 84px; }
+  .nav__logo img { height: 60px; }
+  .nav__cta { gap: 10px; }
+  .nav__wa { width: 42px; min-height: 42px; }
+  .burger { width: 40px; }
+  .burger img { width: 38px; }
+}
